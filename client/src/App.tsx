@@ -50,7 +50,11 @@ const App: FC = () => {
 
   return (
     <div className='flex flex-col justify-center items-center bg-green-100 w-auton h-screen'>
-      {!isInChatRoom ? joiningFormTsx : <Chat />}
+      {!isInChatRoom ? (
+        joiningFormTsx
+      ) : (
+        <Chat roomId={roomId} socket={socket} currentUser={username} />
+      )}
     </div>
   );
 };
